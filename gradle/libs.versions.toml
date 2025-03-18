@@ -2,9 +2,9 @@
 # https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
 
 [versions]
-guava = "33.3.1-jre"
+ujmp = "0.3.0"
 junit = "4.13.2"
 
 [libraries]
-guava = { module = "com.google.guava:guava", version.ref = "guava" }
+ujmp = { module = "org.ujmp:ujmp-core", version.ref = "ujmp" }
 junit = { module = "junit:junit", version.ref = "junit" }
