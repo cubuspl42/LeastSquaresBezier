@@ -677,7 +677,6 @@ Public License instead of this License.  But first, please read
 
 import java.util.ArrayList;
 import org.ujmp.core.Matrix;
-import org.ujmp.core.MatrixFactory;
 
 /**
  * Class used to fit a bezier curve to a list of points.
@@ -771,7 +770,7 @@ public class BezierFit {
 	}
 	
 	private Matrix Y(ArrayList<Point> points){
-		Matrix Y = MatrixFactory.fill(0.0, points.size(), 1);
+		Matrix Y = Matrix.Factory.fill(0.0, points.size(), 1);
 		
 		for(int i = 0; i < points.size(); i++)
 			Y.setAsDouble(points.get(i).getY(), i, 0);
@@ -780,7 +779,7 @@ public class BezierFit {
 	}
 	
 	private Matrix X(ArrayList<Point> points){
-		Matrix X = MatrixFactory.fill(0.0, points.size(), 1);
+		Matrix X = Matrix.Factory.fill(0.0, points.size(), 1);
 		
 		for(int i = 0; i < points.size(); i++)
 			X.setAsDouble(points.get(i).getX(), i, 0);
@@ -791,7 +790,7 @@ public class BezierFit {
 	private Matrix U(ArrayList<Point> points){
 		double[] npls = normalizedPathLengths(points);
 		
-		Matrix U = MatrixFactory.fill(0.0, npls.length, 4);
+		Matrix U = Matrix.Factory.fill(0.0, npls.length, 4);
 		for(int i = 0; i < npls.length; i++){
 			U.setAsDouble(Math.pow(npls[i], 3), i, 0);
 			U.setAsDouble(Math.pow(npls[i], 2), i, 1);
@@ -803,7 +802,7 @@ public class BezierFit {
 	}
 	
 	private Matrix M(){
-		Matrix M = MatrixFactory.fill(0.0, 4, 4);
+		Matrix M = Matrix.Factory.fill(0.0, 4, 4);
 		M.setAsDouble(-1, 0, 0);
 		M.setAsDouble( 3, 0, 1);
 		M.setAsDouble(-3, 0, 2);
